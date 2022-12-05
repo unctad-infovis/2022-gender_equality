@@ -1,0 +1,60 @@
+//@import url('https://fonts.googleapis.com/css?family=Roboto+Serif:600.css');
+
+@import 'colors.less';
+
+.narrow-paragraph {
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 1.46;
+}
+#app-root-2022-gender_equality .app {
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto auto;
+  max-width: 700px;
+  .chart_container {
+    margin: 0 5px;
+    min-height: 600px;
+    .chart {
+      opacity: 0;
+      transition-duration: 500ms;
+      transition-property: opacity;
+      .tooltip_container {
+        z-index: 20;
+        position: relative;
+        background-color: #fff;
+        padding: 8px 10px;
+        .tooltip_header {
+          color: #000;
+          font-size: 20px;
+          line-height: 22px;
+          margin: 0 0 5px 0;
+        }
+        .tooltip_label {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 20px;
+        }
+        .tooltip_value {
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 20px;
+        }
+      }
+      .highcharts-plot-line-label {
+        tspan {
+          fill: #333;
+          font-size: 12px;
+          letter-spacing: 0.02em;
+          text-transform: uppercase;
+        }
+      }
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@import 'basics.less';
