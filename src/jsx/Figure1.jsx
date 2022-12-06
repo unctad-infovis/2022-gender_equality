@@ -13,17 +13,20 @@ function Figure1() {
   const [dataFigure, setDataFigure] = useState(false);
 
   const cleanData = (data) => data.map((el, i) => {
-    const labels = Object.keys(el).filter(val => val !== 'country').map(val => val);
-    const values = Object.values(el).map(val => (parseFloat(val))).filter(val => !Number.isNaN(val));
+    const values = Object.entries(el).filter((val) => val[1] !== '' && val[0] !== 'country').map(val => {
+      val[1] = parseFloat(val[1]);
+      return val;
+    });
+
     return ({
-      data: values.map((val, j) => ({
-        id: labels[j] + el.country,
+      data: values.map((val) => ({
+        id: val[0] + el.country,
         marker: {
-          enabled: labels[j] !== 'Average',
-          radius: (labels[j] === 'Average') ? 0 : 16
+          enabled: val[0] !== 'Average',
+          radius: (val[0] === 'Average') ? 0 : 16
         },
-        name: labels[j],
-        x: val,
+        name: val[0],
+        x: val[1],
         y: i
       })),
       opacity: 1,
@@ -55,8 +58,8 @@ function Figure1() {
         data_decimals={0}
         idx="1"
         note=""
-        source="UNCTAD Inclusive Growth Index (IGI)"
-        subtitle="Distribution of the IGI gender equality component, by region, 2020"
+        source="UNCTAD SDG Pulse, Inclusive Growth Index"
+        subtitle="Distribution of the Inclusive Growth Index (IGI) gender equality component, by region, 2020"
         suffix=""
         line_width={0}
         title="Regional disparities in gender inequality persist"

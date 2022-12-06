@@ -50,9 +50,8 @@ function LineChart({
   const chartRef = useRef();
   const isVisible = useIsVisible(chartRef, { once: true });
 
-  const chartHeight = 600;
+  const chartHeight = 700;
   const createChart = useCallback(() => {
-    console.log(data);
     Highcharts.chart(`chartIdx${idx}`, {
       annotations: [{
         draggable: false,
@@ -65,13 +64,13 @@ function LineChart({
           point: 'AverageDeveloped economies',
           style: {
             color: '#222',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 400,
             lineHeight: '16px'
           },
-          text: 'Avg. 71&nbsp;',
+          text: 'REGIONAL AVERAGE: <strong>71</strong>',
           useHTML: true,
-          y: -50,
+          y: 55,
           zIndex: 1
         }, {
           backgroundColor: 'transparent',
@@ -82,13 +81,13 @@ function LineChart({
           point: 'AverageDeveloping economies: Americas',
           style: {
             color: '#222',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 400,
             lineHeight: '16px'
           },
-          text: 'Avg. 52&nbsp;',
+          text: 'REGIONAL AVERAGE: <strong>52</strong>',
           useHTML: true,
-          y: -20,
+          y: 55,
           zIndex: 1
         }, {
           backgroundColor: 'transparent',
@@ -99,15 +98,16 @@ function LineChart({
           point: 'AverageDeveloping economies: Asia and Oceania',
           style: {
             color: '#222',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 400,
             lineHeight: '16px'
           },
-          text: 'Avg. 48&nbsp;',
+          text: 'REGIONAL AVERAGE: <strong>48</strong>',
           useHTML: true,
-          y: -20,
+          y: 55,
           zIndex: 1
         }, {
+          allowOverlap: true,
           backgroundColor: 'transparent',
           borderColor: '#999',
           borderRadius: 10,
@@ -116,13 +116,13 @@ function LineChart({
           point: 'AverageDeveloping economies: Africa',
           style: {
             color: '#222',
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 400,
             lineHeight: '16px'
           },
-          text: 'Avg. 35&nbsp;',
+          text: 'REGIONAL AVERAGE: <strong>35</strong>',
           useHTML: true,
-          y: -20,
+          y: 55,
           zIndex: 1
         }]
       }],
@@ -175,7 +175,7 @@ function LineChart({
           fontWeight: 400
         },
         type: 'line',
-        zoomType: 'y'
+        zoomType: 'x'
       },
       colors: ['rgba(114, 191, 68, 0.7)', 'rgba(160, 102, 170, 0.7)', 'rgba(245, 130, 32, 0.7)', 'rgba(0, 158, 219, 0.7)'],
       credits: {
@@ -202,7 +202,7 @@ function LineChart({
       plotOptions: {
         line: {
           animation: {
-            duration: 3000,
+            duration: 3000
           },
           cursor: 'pointer',
           dataLabels: {
@@ -293,12 +293,13 @@ function LineChart({
           lineHeight: '18px'
         },
         text: subtitle,
+        useHTML: true,
         widthAdjust: -100,
         x: 100
       },
       title: {
         align: 'left',
-        margin: 40,
+        margin: 10,
         style: {
           color: '#000',
           fontSize: '30px',
@@ -344,8 +345,8 @@ function LineChart({
         lineWidth: 0,
         opposite: false,
         // tickInterval: 1000 * 60 * 60 * 24 * 365,
-        tickLength: 5,
-        tickWidth: 1,
+        tickLength: 0,
+        tickWidth: 0,
         title: {
           enabled: false
         },
@@ -359,8 +360,9 @@ function LineChart({
         },
         lineColor: 'transparent',
         lineWidth: 0,
-        // max: 3,
-        min: 0,
+        max: 3.3,
+        min: -0.5,
+        tickInterval: 0.1,
         opposite: false,
         plotLines: [{
           color: '#aaa096',
@@ -368,7 +370,7 @@ function LineChart({
             style: {
               color: '#222',
               fontSize: '16px',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: '18px'
             },
             text: 'Developed economies',
@@ -384,12 +386,12 @@ function LineChart({
             style: {
               color: '#222',
               fontSize: '16px',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: '18px'
             },
-            text: '<span>Americas</span><br />Developing economies',
+            text: 'Developing economies: Americas',
             x: -10,
-            y: -45
+            y: -25
           },
           value: 2,
           width: 1,
@@ -401,12 +403,12 @@ function LineChart({
             style: {
               color: '#222',
               fontSize: '16px',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: '18px'
             },
-            text: '<span>Asia and Oceania</span><br />Developing economies',
+            text: 'Developing economies: Asia and Oceania',
             x: -10,
-            y: -45
+            y: -25
           },
           value: 1,
           width: 1,
@@ -417,12 +419,12 @@ function LineChart({
             style: {
               color: '#222',
               fontSize: '16px',
-              fontWeight: 400,
+              fontWeight: 600,
               lineHeight: '18px'
             },
-            text: '<span>Africa</span><br />Developing economies',
+            text: 'Developing economies: Africa',
             x: -10,
-            y: -45
+            y: -25
           },
           value: 0,
           width: 1,
