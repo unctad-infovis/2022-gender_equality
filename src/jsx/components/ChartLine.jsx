@@ -227,6 +227,7 @@ function LineChart({
                   duration: 50
                 },
                 enabled: true,
+                lineColor: '#aaa096',
                 lineWidthPlus: 2,
                 radiusPlus: 4
               }
@@ -235,12 +236,12 @@ function LineChart({
           },
           states: {
             hover: {
-              halo: {
-                size: 0
-              },
               enabled: true,
-              lineWidthPlus: 0,
+              halo: {
+                size: 2
+              },
               lineWidth: line_width,
+              lineWidthPlus: 0,
             },
             inactive: {
               opacity: 1
@@ -318,7 +319,7 @@ function LineChart({
         crosshairs: false,
         formatter() {
           // eslint-disable-next-line react/no-this-in-sfc
-          return `<div class="tooltip_container"><span class="tooltip_label">${this.key}:</span> <span class="tooltip_value">${roundNr(this.x, 1).toFixed(1)}</span></div>`;
+          return (this.key !== 'Average') ? `<div class="tooltip_container"><span class="tooltip_label">${this.key}:</span> <span class="tooltip_value">${roundNr(this.x, 1).toFixed(1)}</span></div>` : false;
         },
         padding: 1,
         shadow: false,
