@@ -45,7 +45,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function LineChart({
-  allow_decimals, data, idx, line_width, note, show_first_label, source, subtitle, title
+  allow_decimals, data, idx, line_width, show_first_label, source, subtitle, title
 }) {
   const chartRef = useRef();
   const isVisible = useIsVisible(chartRef, { once: true });
@@ -134,8 +134,9 @@ function LineChart({
           fontFamily: 'Roboto',
           fontSize: '14px'
         },
-        text: `<em>Source:</em> ${source} ${note ? (`<br /><em>Note:</em> <span>${note}</span>`) : ''}`,
+        text: `<em>Source:</em> ${source} <br /><em>Note:</em> <span>The higher the number, the better the gender equality score. The score is measured from gender equality indicators of IGI, including gender parity in secondary school enrollment, employment, labour force participation, parliamentary seats, age of first marriage, and wage and salaried workers as further detailed in Box 1 of SDG Pulse <a href="https://sdgpulse.unctad.org/inclusive-growth/">2022 in-focus</a>.</span>`,
         verticalAlign: 'bottom',
+        useHTML: true,
         x: 0
       },
       chart: {
@@ -447,7 +448,7 @@ function LineChart({
       }
     });
     chartRef.current.querySelector(`#chartIdx${idx}`).style.opacity = 1;
-  }, [allow_decimals, data, idx, line_width, note, show_first_label, source, subtitle, title]);
+  }, [allow_decimals, data, idx, line_width, show_first_label, source, subtitle, title]);
 
   useEffect(() => {
     if (isVisible === true) {
@@ -472,7 +473,6 @@ LineChart.propTypes = {
   data: PropTypes.instanceOf(Array).isRequired,
   idx: PropTypes.string.isRequired,
   line_width: PropTypes.number,
-  note: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   show_first_label: PropTypes.bool,
   source: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
@@ -482,7 +482,6 @@ LineChart.propTypes = {
 LineChart.defaultProps = {
   allow_decimals: true,
   line_width: 5,
-  note: false,
   show_first_label: true,
   subtitle: false
 };
