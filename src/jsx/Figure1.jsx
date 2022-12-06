@@ -55,7 +55,7 @@ function Figure1() {
         data_decimals={0}
         idx="1"
         note=""
-        source="UNCTAD IGI"
+        source="UNCTAD Inclusive Growth Index (IGI)"
         subtitle="Distribution of the IGI gender equality component, by region, 2020"
         suffix=""
         line_width={0}
