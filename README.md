@@ -8,6 +8,7 @@
 * [UNCTAD/LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7006213581453086721)
 * [UNCTAD/Facebook](https://www.facebook.com/UNCTAD/posts/525244996309425)
 * [UNCTAD/Instagram](https://www.instagram.com/p/Cl3VT0WNZ7Z/)
+* [The persisting regional gaps in gender equality](https://unctad.org/data-visualization/persisting-regional-gaps-gender-equality)
 
 ## Rights of usage
 
