@@ -254,19 +254,19 @@ function LineChart({
         rules: [{
           chartOptions: {
             title: {
-              margin: 10
+              margin: 20
             }
           },
           condition: {
-            maxWidth: 630
+            maxWidth: 800
           }
         }, {
           chartOptions: {
             title: {
-              margin: 10,
+              margin: 30,
               style: {
-                fontSize: '26px',
-                lineHeight: '30px'
+                fontSize: '22px',
+                lineHeight: '24px'
               }
             }
           },
@@ -275,12 +275,12 @@ function LineChart({
           }
         }, {
           chartOptions: {
-            annotations: {
-              enabled: false
+            title: {
+              margin: 30
             }
           },
           condition: {
-            maxWidth: 550
+            maxWidth: 400
           }
         }]
       },
@@ -301,7 +301,7 @@ function LineChart({
       },
       title: {
         align: 'left',
-        margin: 10,
+        margin: 70,
         style: {
           color: '#000',
           fontSize: '30px',

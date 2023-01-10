@@ -18,6 +18,11 @@
       opacity: 0;
       transition-duration: 500ms;
       transition-property: opacity;
+      @media all and (max-width: 500px) {
+        .highcharts-annotation {
+          display: none;
+        }
+      }
       .highcharts-menu {
         hr {
           margin: 5px 0;
