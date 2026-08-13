@@ -45,7 +45,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function LineChart({
-  allow_decimals, data, idx, line_width, show_first_label, source, subtitle, title
+  allow_decimals = true, data, idx, line_width = 5, show_first_label = true, source, subtitle = false, title
 }) {
   const chartRef = useRef();
   const isVisible = useIsVisible(chartRef, { once: true });
@@ -477,13 +477,6 @@ LineChart.propTypes = {
   source: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired,
-};
-
-LineChart.defaultProps = {
-  allow_decimals: true,
-  line_width: 5,
-  show_first_label: true,
-  subtitle: false
 };
 
 export default LineChart;
